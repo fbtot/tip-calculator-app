@@ -16,7 +16,60 @@
     <title>Tip Calculator</title>
   </head>
   <body>
-    <h1>Hello world!</h1>
+    <header class="header">
+      <h1>Spli<br />tter</h1>
+    </header>
+    <main class="calculator">
+      <!-- ========================== § CALCULATOR INPUT === -->
+      <div class="calculator__input">
+        <form action="get">
+          <label for="bill">Bill</label>
+          <input type="number" name="bill" id="bill" class="calculator__bill" />
+
+          <fieldset class="calculator__tip-percent-container">
+            <legend>Select Tip %</legend>
+
+            <label for="tip-percent-1">5%</label>
+            <input type="radio" id="tip-percent-1" name="tip-percent-1" class="calculator__tip-percent--select" />
+
+            <label for="tip-percent-2">10%</label>
+            <input type="radio" id="tip-percent-2" name="tip-percent" class="calculator__tip-percent--select" />
+
+            <label for="tip-percent-3">15%</label>
+            <input type="radio" id="tip-percent-3" name="tip-percent" class="calculator__tip-percent--select" />
+
+            <label for="tip-percent-4">20%</label>
+            <input type="radio" id="tip-percent-4" name="tip-percent" class="calculator__tip-percent--select" />
+
+            <label for="tip-percent-5">50%</label>
+            <input type="radio" id="tip-percent-5" name="tip-percent" class="calculator__tip-percent--select" />
+
+            <input placeholder="Custom" type="text" name="tip-percent-6" class="calculator__tip-percent--input" />
+          </fieldset>
+
+          <label for="people">Number of People</label>
+          <input type="number" name="people" id="people" class="calculator__people" />
+        </form>
+      </div>
+      <!-- end .calculator__input -->
+
+      <!-- ========================== § CALCULATOR OUTPUT === -->
+      <div class="calculator__output">
+        <table>
+          <tr>
+            <td class="calculator__tip-amount">Tip Amount <span>/ person</span></td>
+            <td class="calculator__total">4.27</td>
+          </tr>
+          <tr>
+            <td class="calculator__tip-amount">Total <span>/ person</span></td>
+            <td class="calculator__total">32.79</td>
+          </tr>
+        </table>
+
+        <button class="calculator__reset input--highlight">Reset</button>
+      </div>
+      <!-- end .calculator__output -->
+    </main>
 
     <!-- ========================== § JS === -->
     <script src="js/script.js"></script>
