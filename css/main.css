@@ -24,6 +24,17 @@
   --h6-font-size: 1rem;
 }
 
+.calculator__tip-percent-container input[type=radio] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -164,6 +175,10 @@ input[type=submit] {
   cursor: pointer;
 }
 
+form {
+  width: 100%;
+}
+
 /* ========================== § TYPOGRAPHY == */
 .title {
   text-align: center;
@@ -183,7 +198,6 @@ legend {
 
 label,
 legend {
-  letter-spacing: 0.06em;
   font-weight: bold;
   color: var(--dark-grayish-cyan);
 }
@@ -239,7 +253,7 @@ input::placeholder {
 .calculator {
   background: white;
   color: var(--very-dark-cyan);
-  padding: 1.3em;
+  padding: 0.7rem;
   border-radius: 1rem;
   /* mixin mq */
   /* end mixin mq */
@@ -248,6 +262,7 @@ input::placeholder {
   .calculator {
     margin: 0 auto;
     width: 920px;
+    padding: 1.3em;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
@@ -257,20 +272,133 @@ input::placeholder {
 /* ========================== § INPUT === */
 .calculator__input {
   padding: 0.3rem 0.6rem;
-}
-
-.calculator__bill {
   width: 100%;
-}
-
-/* ========================== § OUTPUT === */
-.calculator__output {
-  background: var(--very-dark-cyan);
 }
 
 .calculator__bill,
 .calculator__people {
   text-align: right;
+}
+
+.calculator__bill {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.calculator__tip-percent-container {
+  display: grid;
+  gap: 0.7rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  /* mixin mq */
+  /* end mixin mq */
+  width: 100%;
+  padding: 0;
+  margin-bottom: 1rem;
+  border: none;
+}
+@media screen and (min-width: 800px) {
+  .calculator__tip-percent-container {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+.calculator__tip-percent-container input[type=radio] {
+  grid-column-start: 1;
+  grid-column-end: 1;
+  position: absolute;
+}
+.calculator__tip-percent-container legend {
+  margin: 0;
+  margin-bottom: 0.4rem;
+}
+
+.calculator__tip-percent-button {
+  text-align: center;
+  width: 100%;
+}
+
+.calculator__tip-percent--input {
+  text-align: center;
+}
+.calculator__tip-percent--input::placeholder {
+  color: var(--dark-grayish-cyan);
+}
+
+.calculator__people {
+  width: 100%;
+  /* mixin mq */
+  /* end mixin mq */
+}
+@media screen and (max-width: 799px) {
+  .calculator__people {
+    margin-bottom: 1rem;
+  }
+}
+
+/* ========================== § OUTPUT === */
+.calculator__output {
+  display: grid;
+  background: var(--very-dark-cyan);
+  border-radius: 0.7rem;
+  padding: 1.6rem 1rem;
+  /* mixin mq */
+  /* end mixin mq */
+}
+@media screen and (min-width: 800px) {
+  .calculator__output {
+    padding: 1.3rem 1.8rem 1.8rem;
+  }
+}
+
+.calculator__table {
+  width: 100%;
+  border: none;
+}
+.calculator__table td {
+  border: none;
+  padding: 0;
+  padding-bottom: 1rem;
+  /* mixin mq */
+  /* end mixin mq */
+}
+@media screen and (min-width: 800px) {
+  .calculator__table td {
+    padding-bottom: 0rem;
+  }
+}
+
+.calculator__tip-amount {
+  color: white;
+  font-weight: bold;
+  font-size: 0.6rem;
+  line-height: 1.5em;
+}
+.calculator__tip-amount span {
+  display: block;
+  color: var(--dark-grayish-cyan2);
+  font-size: 0.5rem;
+}
+
+.calculator__total {
+  font-size: 1.2rem;
+  color: var(--strong-cyan);
+  font-weight: bold;
+  text-align: right;
+  /* mixin mq */
+  /* end mixin mq */
+}
+.calculator__total:before {
+  content: "$";
+}
+@media screen and (min-width: 800px) {
+  .calculator__total {
+    font-size: 2rem;
+  }
+}
+
+.calculator__reset {
+  display: block;
+  width: 100%;
+  align-self: end;
 }
 
 /*# sourceMappingURL=main.css.map */

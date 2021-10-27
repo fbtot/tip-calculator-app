@@ -136,6 +136,10 @@ input[type="submit"] {
   cursor: pointer;
 }
 
+form {
+  width: 100%;
+}
+
 /* ========================== § TYPOGRAPHY == */
 .title {
   text-align: center;
@@ -154,7 +158,7 @@ legend {
 
 label,
 legend {
-  letter-spacing: 0.06em;
+  // letter-spacing: 0.02em;
   font-weight: bold;
   color: var(--dark-grayish-cyan);
 }
@@ -213,12 +217,14 @@ input::placeholder {
 .calculator {
   background: white;
   color: var(--very-dark-cyan);
-  padding: 1.3em;
+  padding: 0.7rem;
   border-radius: 1rem;
 
   @include mq($desktop-width, up) {
     margin: 0 auto;
     width: 920px;
+
+    padding: 1.3em;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
@@ -228,18 +234,124 @@ input::placeholder {
 /* ========================== § INPUT === */
 .calculator__input {
   padding: 0.3rem 0.6rem;
-}
-
-.calculator__bill {
   width: 100%;
-}
-
-/* ========================== § OUTPUT === */
-.calculator__output {
-  background: var(--very-dark-cyan);
 }
 
 .calculator__bill,
 .calculator__people {
   text-align: right;
+}
+
+.calculator__bill {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.calculator__tip-percent-container {
+  // Grid
+  display: grid;
+  gap: 0.7rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  @include mq($desktop-width, up) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  input[type="radio"] {
+    @extend %hide-visually;
+    @include column-start-end(1, 1);
+    position: absolute;
+  }
+
+  // Other styles
+  width: 100%;
+  padding: 0;
+  margin-bottom: 1rem;
+  border: none;
+
+  legend {
+    margin: 0;
+    margin-bottom: 0.4rem;
+  }
+}
+
+.calculator__tip-percent-button {
+  text-align: center;
+  width: 100%;
+}
+
+.calculator__tip-percent--input {
+  text-align: center;
+
+  &::placeholder {
+    color: var(--dark-grayish-cyan);
+  }
+}
+
+.calculator__people {
+  width: 100%;
+
+  @include mq($desktop-width, down) {
+    margin-bottom: 1rem;
+  }
+}
+
+/* ========================== § OUTPUT === */
+.calculator__output {
+  display: grid;
+  background: var(--very-dark-cyan);
+  border-radius: 0.7rem;
+  padding: 1.6rem 1rem;
+
+  @include mq($desktop-width, up) {
+    padding: 1.3rem 1.8rem 1.8rem;
+  }
+}
+
+.calculator__table {
+  width: 100%;
+  border: none;
+
+  td {
+    border: none;
+    padding: 0;
+    padding-bottom: 1rem;
+
+    @include mq($desktop-width, up) {
+      padding-bottom: 0rem;
+    }
+  }
+}
+
+.calculator__tip-amount {
+  color: white;
+  font-weight: bold;
+  font-size: 0.6rem;
+  line-height: 1.5em;
+
+  span {
+    display: block;
+    color: var(--dark-grayish-cyan2);
+    font-size: 0.5rem;
+  }
+}
+
+.calculator__total {
+  font-size: 1.2rem;
+  color: var(--strong-cyan);
+  font-weight: bold;
+  text-align: right;
+
+  &:before {
+    content: "$";
+  }
+
+  @include mq($desktop-width, up) {
+    font-size: 2rem;
+  }
+}
+
+.calculator__reset {
+  display: block;
+  width: 100%;
+  align-self: end;
 }
