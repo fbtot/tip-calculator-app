@@ -12,7 +12,7 @@
   --grey500: hsl(0, 0%, 50%);
   --base-font-size: 24px;
   --small-font-size: 21.6px;
-  --font-size-labels: 0.6rem;
+  --font-size-labels: 0.7rem;
   --input-font-size: 0.9rem;
   --body-font-family: "Space Mono", sans-serif;
   --headings-font-family: "Raleway", sans-serif;
@@ -171,6 +171,9 @@ input[type=submit] {
   text-transform: uppercase;
   letter-spacing: 0.4em;
   line-height: 1.5em;
+  max-width: unset;
+  margin-top: 0;
+  margin-bottom: 3.2rem;
 }
 
 label:not(.calculator__tip-percent-button),
@@ -236,9 +239,31 @@ input::placeholder {
 .calculator {
   background: white;
   color: var(--very-dark-cyan);
-  padding: 1rem;
+  padding: 1.3em;
+  border-radius: 1rem;
+  /* mixin mq */
+  /* end mixin mq */
+}
+@media screen and (min-width: 800px) {
+  .calculator {
+    margin: 0 auto;
+    width: 920px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
 }
 
+/* ========================== § INPUT === */
+.calculator__input {
+  padding: 0.3rem 0.6rem;
+}
+
+.calculator__bill {
+  width: 100%;
+}
+
+/* ========================== § OUTPUT === */
 .calculator__output {
   background: var(--very-dark-cyan);
 }

@@ -143,6 +143,9 @@ input[type="submit"] {
   text-transform: uppercase;
   letter-spacing: 0.4em;
   line-height: 1.5em;
+  max-width: unset;
+  margin-top: 0;
+  margin-bottom: 3.2rem;
 }
 label:not(.calculator__tip-percent-button),
 legend {
@@ -210,9 +213,28 @@ input::placeholder {
 .calculator {
   background: white;
   color: var(--very-dark-cyan);
-  padding: 1rem;
+  padding: 1.3em;
+  border-radius: 1rem;
+
+  @include mq($desktop-width, up) {
+    margin: 0 auto;
+    width: 920px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
 }
 
+/* ========================== § INPUT === */
+.calculator__input {
+  padding: 0.3rem 0.6rem;
+}
+
+.calculator__bill {
+  width: 100%;
+}
+
+/* ========================== § OUTPUT === */
 .calculator__output {
   background: var(--very-dark-cyan);
 }
