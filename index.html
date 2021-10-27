@@ -17,38 +17,38 @@
   </head>
   <body>
     <header class="header">
-      <h1>Spli<br />tter</h1>
+      <h1 class="title">Spli<br />tter</h1>
     </header>
     <main class="calculator">
       <!-- ========================== § CALCULATOR INPUT === -->
       <div class="calculator__input">
         <form action="get">
           <label for="bill">Bill</label>
-          <input type="number" name="bill" id="bill" class="calculator__bill" />
+          <input placeholder="0" type="number" min="0" name="bill" id="bill" class="button calculator__bill" />
 
           <fieldset class="calculator__tip-percent-container">
             <legend>Select Tip %</legend>
 
-            <input type="radio" id="tip-percent-1" name="tip-percent-1" class="calculator__tip-percent--select" />
-            <label for="tip-percent-1">5%</label>
+            <input type="radio" id="tip-percent-1" name="tip-percent-1" />
+            <label for="tip-percent-1" class="calculator__tip-percent-button button--dark">5%</label>
 
-            <input type="radio" id="tip-percent-2" name="tip-percent" class="calculator__tip-percent--select" />
-            <label for="tip-percent-2">10%</label>
+            <input type="radio" id="tip-percent-2" name="tip-percent" />
+            <label for="tip-percent-2" class="calculator__tip-percent-button button--dark">10%</label>
 
-            <input type="radio" id="tip-percent-3" name="tip-percent" class="calculator__tip-percent--select" />
-            <label for="tip-percent-3">15%</label>
+            <input type="radio" id="tip-percent-3" name="tip-percent" />
+            <label for="tip-percent-3" class="calculator__tip-percent-button button--dark--active">15%</label>
 
-            <input type="radio" id="tip-percent-4" name="tip-percent" class="calculator__tip-percent--select" />
-            <label for="tip-percent-4">20%</label>
+            <input type="radio" id="tip-percent-4" name="tip-percent" />
+            <label for="tip-percent-4" class="calculator__tip-percent-button button--dark">20%</label>
 
-            <input type="radio" id="tip-percent-5" name="tip-percent" class="calculator__tip-percent--select" />
-            <label for="tip-percent-5">50%</label>
+            <input type="radio" id="tip-percent-5" name="tip-percent" />
+            <label for="tip-percent-5" class="calculator__tip-percent-button button--dark">50%</label>
 
-            <input placeholder="Custom" type="text" name="tip-percent-6" class="calculator__tip-percent--input" />
+            <input placeholder="Custom" type="text" name="tip-percent-6" class="calculator__tip-percent--input button" />
           </fieldset>
 
           <label for="people">Number of People</label>
-          <input type="number" name="people" id="people" class="calculator__people" />
+          <input type="number" placeholder="0" min="1" name="people" id="people" class="button calculator__people" />
         </form>
       </div>
       <!-- end .calculator__input -->
@@ -66,7 +66,7 @@
           </tr>
         </table>
 
-        <button class="calculator__reset input--highlight">Reset</button>
+        <button class="calculator__reset button--dark--unclickable">Reset</button>
       </div>
       <!-- end .calculator__output -->
     </main>

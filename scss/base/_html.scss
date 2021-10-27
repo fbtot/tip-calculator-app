@@ -7,6 +7,7 @@
 }
 
 html {
+  @include antialias;
   font-size: var(--base-font-size);
   scroll-behavior: smooth;
 }
@@ -14,7 +15,7 @@ html {
 body {
   font-family: var(--body-font-family);
   color: var(--text-color);
-  background-color: rgb(238, 238, 238);
+  background-color: var(--light-grayish-cyan);
   line-height: 1.6em;
 }
 
@@ -133,4 +134,90 @@ select {
 button,
 input[type="submit"] {
   cursor: pointer;
+}
+
+/* ========================== § TYPOGRAPHY == */
+.title {
+  text-align: center;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  line-height: 1.5em;
+}
+label:not(.calculator__tip-percent-button),
+legend {
+  font-size: var(--font-size-labels);
+}
+
+label,
+legend {
+  letter-spacing: 0.06em;
+  font-weight: bold;
+  color: var(--dark-grayish-cyan);
+}
+
+input {
+  font-size: var(--input-font-size);
+}
+
+/* hide arrows https://www.w3schools.com/howto/howto_css_hide_arrow_number.asp */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input::placeholder {
+  color: var(--dark-grayish-cyan2);
+}
+
+/* ========================== § BUTTONS === */
+.button {
+  background: var(--light-grayish-cyan2);
+  font-weight: bold;
+  border: none;
+  border-radius: 0.2rem;
+  height: 2rem;
+  display: block;
+  line-height: 2rem;
+  padding: 0 0.5rem;
+}
+
+.button--dark {
+  @extend .button;
+  background: var(--very-dark-cyan);
+  color: white;
+}
+
+.button--dark--active {
+  @extend .button;
+  background: var(--strong-cyan);
+  color: var(--very-dark-cyan);
+}
+
+.button--dark--unclickable {
+  @extend .button;
+  background: #0f5d62;
+  color: #055155;
+  pointer-events: none;
+}
+
+.calculator {
+  background: white;
+  color: var(--very-dark-cyan);
+  padding: 1rem;
+}
+
+.calculator__output {
+  background: var(--very-dark-cyan);
+}
+
+.calculator__bill,
+.calculator__people {
+  text-align: right;
 }
