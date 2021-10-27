@@ -60,7 +60,7 @@
 
 // ========================== § CENTER ===
 // Center an element in many different ways: flex, grid, translate, margin
-@mixin center($method: "") {
+@mixin center($method: "", $body-full-page: false) {
   /* @mixin center */
   @if $method == "flex" {
     display: flex;
@@ -78,6 +78,10 @@
   } @else if $method == "" OR $method == "margin" {
     margin-left: auto;
     margin-right: auto;
+  }
+  @if $body-full-page == true {
+    min-height: 100vh;
+    min-width: 100vw;
   }
   /* end @mixin center */
 }
