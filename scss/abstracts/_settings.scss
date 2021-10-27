@@ -1,10 +1,21 @@
-$base-font-size: 16px;
-$small-font-size: 16px * 0.9;
+$base-font-size: 24px;
+$small-font-size: 24px * 0.9;
 $desktop-width: 800px;
 $mobile-width: $desktop-width - 1px;
 
 :root {
   // Colors
+
+  --strong-cyan: hsl(172, 67%, 45%);
+
+  // Neutral
+
+  --very-dark-cyan: hsl(183, 100%, 15%);
+  --dark-grayish-cyan: hsl(186, 14%, 43%);
+  --dark-grayish-cyan: hsl(184, 14%, 56%);
+  --light-grayish-cyan: hsl(185, 41%, 84%);
+  --light-grayish-cyan: hsl(189, 41%, 97%);
+
   --text-color: hsl(0, 0%, 7%);
   --accent-color: hsl(216, 61%, 54%);
   --grey300: hsl(0, 0%, 70%);
@@ -13,7 +24,7 @@ $mobile-width: $desktop-width - 1px;
   // Typography
   --base-font-size: #{$base-font-size};
   --small-font-size: #{$small-font-size};
-  --body-font-family: "Open Sans", sans-serif;
+  --body-font-family: "Space Mono", sans-serif;
   --headings-font-family: "Raleway", sans-serif;
   --h1-font-size: 2.7rem;
   --h2-font-size: 2rem;
