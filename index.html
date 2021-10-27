@@ -16,72 +16,69 @@
     <title>Tip Calculator</title>
   </head>
   <body>
-    <header class="header">
-      <h1 class="title">Spli<br />tter</h1>
-    </header>
-    <main class="calculator">
-      <!-- ========================== § CALCULATOR INPUT === -->
-      <div class="calculator__input">
-        <form action="get">
-          <label for="bill">Bill</label>
-          <input placeholder="0" type="number" min="0" name="bill" id="bill" class="button calculator__bill" />
+    <div class="app">
+      <header class="header">
+        <h1 class="title">Spli<br />tter</h1>
+      </header>
+      <main class="calculator">
+        <!-- ========================== § CALCULATOR INPUT === -->
+        <div class="calculator__input">
+          <form action="get">
+            <label for="bill">Bill</label>
+            <input placeholder="0" type="number" min="0" name="bill" id="bill" class="button calculator__bill" />
+            <fieldset class="calculator__tip-percent-container">
+              <legend>Select Tip %</legend>
+              <div class="calculator__button-container">
+                <!-- ========================== § TIP BUTTONS === -->
+                <input type="radio" id="tip-percent-1" name="tip-percent-1" />
+                <label for="tip-percent-1" class="calculator__tip-percent-button button--dark">5%</label>
+              </div>
+              <div class="calculator__button-container">
+                <input type="radio" id="tip-percent-2" name="tip-percent" />
+                <label for="tip-percent-2" class="calculator__tip-percent-button button--dark">10%</label>
+              </div>
+              <div class="calculator__button-container">
+                <input type="radio" id="tip-percent-3" name="tip-percent" />
+                <label for="tip-percent-3" class="calculator__tip-percent-button button--dark">15%</label>
+              </div>
+              <div class="calculator__button-container">
+                <input type="radio" id="tip-percent-4" name="tip-percent" />
+                <label for="tip-percent-4" class="calculator__tip-percent-button button--dark">20%</label>
+              </div>
+              <div class="calculator__button-container">
+                <input type="radio" id="tip-percent-5" name="tip-percent" />
+                <label for="tip-percent-5" class="calculator__tip-percent-button button--dark">50%</label>
+              </div>
+              <input placeholder="Custom" type="number" name="tip-percent-6" class="calculator__tip-percent--input button" />
+            </fieldset>
 
-          <fieldset class="calculator__tip-percent-container">
-            <legend>Select Tip %</legend>
-
-            <div class="calculator__button-container">
-              <input type="radio" id="tip-percent-1" name="tip-percent-1" />
-              <label for="tip-percent-1" class="calculator__tip-percent-button button--dark">5%</label>
+            <!-- ========================== § NUMBER OF PEOPLE === -->
+            <div class="calculator__people-label-container">
+              <label for="people">Number of People</label>
+              <span aria-role="alert" class="calculator__error-msg">Can't be zero</span>
             </div>
-
-            <div class="calculator__button-container">
-              <input type="radio" id="tip-percent-2" name="tip-percent" />
-              <label for="tip-percent-2" class="calculator__tip-percent-button button--dark">10%</label>
-            </div>
-
-            <div class="calculator__button-container">
-              <input type="radio" id="tip-percent-3" name="tip-percent" />
-              <label for="tip-percent-3" class="calculator__tip-percent-button button--dark--active">15%</label>
-            </div>
-
-            <div class="calculator__button-container">
-              <input type="radio" id="tip-percent-4" name="tip-percent" />
-              <label for="tip-percent-4" class="calculator__tip-percent-button button--dark">20%</label>
-            </div>
-
-            <div class="calculator__button-container">
-              <input type="radio" id="tip-percent-5" name="tip-percent" />
-              <label for="tip-percent-5" class="calculator__tip-percent-button button--dark">50%</label>
-            </div>
-
-            <input placeholder="Custom" type="text" name="tip-percent-6" class="calculator__tip-percent--input button" />
-          </fieldset>
-
-          <label for="people">Number of People</label>
-          <input type="number" placeholder="0" min="1" name="people" id="people" class="button calculator__people" />
-        </form>
-      </div>
-      <!-- end .calculator__input -->
-
-      <!-- ========================== § CALCULATOR OUTPUT === -->
-      <div class="calculator__output">
-        <table class="calculator__table">
-          <tr>
-            <td class="calculator__tip-amount">Tip Amount <span>/ person</span></td>
-            <td class="calculator__total">4.27</td>
-          </tr>
-          <tr>
-            <td class="calculator__tip-amount">Total <span>/ person</span></td>
-            <td class="calculator__total">999.79</td>
-          </tr>
-        </table>
-
-        <button class="calculator__reset button--dark--unclickable">Reset</button>
-      </div>
-      <!-- end .calculator__output -->
-    </main>
-
-    <!-- ========================== § JS === -->
-    <script src="js/script.js"></script>
+            <input type="number" placeholder="0" name="people" id="people" class="button calculator__people" />
+          </form>
+        </div>
+        <!-- end .calculator__input -->
+        <!-- ========================== § CALCULATOR OUTPUT === -->
+        <div class="calculator__output">
+          <table class="calculator__table">
+            <tr>
+              <td class="calculator__tip-amount">Tip Amount <span>/ person</span></td>
+              <td class="calculator__total">0.00</td>
+            </tr>
+            <tr>
+              <td class="calculator__tip-amount">Total <span>/ person</span></td>
+              <td class="calculator__total">0.00</td>
+            </tr>
+          </table>
+          <button class="calculator__reset button--dark unclickable">Reset</button>
+        </div>
+        <!-- end .calculator__output -->
+      </main>
+      <!-- ========================== § JS === -->
+      <script src="js/script.js"></script>
+    </div>
   </body>
 </html>

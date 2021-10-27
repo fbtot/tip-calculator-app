@@ -13,6 +13,7 @@ html {
 }
 
 body {
+  @include center(flex, true);
   font-family: var(--body-font-family);
   color: var(--text-color);
   background-color: var(--light-grayish-cyan);
@@ -150,7 +151,13 @@ form {
   max-width: unset;
   margin-top: 0;
   margin-bottom: 3.2rem;
+
+  @include mq($desktop-width, down) {
+    margin-top: 2rem;
+    margin-bottom: 1.2rem;
+  }
 }
+
 label:not(.calculator__tip-percent-button),
 legend {
   font-size: var(--font-size-labels);
@@ -165,6 +172,15 @@ legend {
 
 input {
   font-size: var(--input-font-size);
+  caret-color: var(--strong-cyan);
+
+  &:focus {
+    outline: 2px solid var(--strong-cyan);
+  }
+
+  &.error {
+    outline: 2px solid var(--error-color);
+  }
 }
 
 /* hide arrows https://www.w3schools.com/howto/howto_css_hide_arrow_number.asp */
@@ -201,13 +217,21 @@ input::placeholder {
   color: white;
 }
 
-.button--dark--active {
+.button--dark.active {
   @extend .button;
   background: var(--strong-cyan);
   color: var(--very-dark-cyan);
 }
 
-.button--dark--unclickable {
+.button--dark.active,
+.button--dark {
+  &:hover {
+    background: #95e5da;
+    color: var(--very-dark-cyan);
+  }
+}
+
+.button--dark.unclickable {
   @extend .button;
   background: #0f5d62;
   color: #055155;
@@ -218,9 +242,10 @@ input::placeholder {
   background: white;
   color: var(--very-dark-cyan);
   padding: 0.7rem;
-  border-radius: 1rem;
+  border-radius: 1rem 1rem 0 0;
 
   @include mq($desktop-width, up) {
+    border-radius: 1rem;
     margin: 0 auto;
     width: 920px;
 
@@ -243,6 +268,7 @@ input::placeholder {
 }
 
 .calculator__bill {
+  background: var(--light-grayish-cyan2) url(../../images/icon-dollar.svg) 1rem center no-repeat;
   width: 100%;
   margin-bottom: 1rem;
 }
@@ -265,7 +291,7 @@ input::placeholder {
   // Other styles
   width: 100%;
   padding: 0;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   border: none;
 
   legend {
@@ -277,24 +303,40 @@ input::placeholder {
 .calculator__tip-percent-button {
   text-align: center;
   width: 100%;
+  cursor: pointer;
 }
 
 .calculator__tip-percent--input {
-  text-align: center;
+  text-align: right;
 
   &::placeholder {
     color: var(--dark-grayish-cyan);
   }
 }
 
+.calculator__people-label-container {
+  display: flex;
+}
+
 .calculator__people {
   width: 100%;
-
+  background: var(--light-grayish-cyan2) url(../images/icon-person.svg) 1rem center no-repeat;
   @include mq($desktop-width, down) {
     margin-bottom: 1rem;
   }
 }
 
+.calculator__error-msg {
+  display: none;
+  font-size: var(--font-size-labels);
+  font-weight: bold;
+  color: var(--error-color);
+  margin-left: auto;
+
+  &.error {
+    display: block;
+  }
+}
 /* ========================== § OUTPUT === */
 .calculator__output {
   display: grid;
