@@ -68,17 +68,13 @@ function updateResults() {
   tipPerPerson.innerText = totalPerPerson();
   toggleResetButton();
 }
-
-// eventlisteners
-
 [billInput, peopleInput, tipInput].forEach((el) => {
   el.addEventListener("keyup", function () {
     return updateResults();
   });
 });
 
-Array.from(tipButton).forEach((el) => {
-  el.addEventListener("click", function () {
-    return updateResults();
-  });
-});
+// Array.from(tipButton).forEach((el) => {
+//   el.addEventListener("click", function () {
+//     return updateResults();
+//   });
