@@ -15,6 +15,8 @@ const billInput = document.getElementById("bill");
 const tipButton = document.getElementsByClassName("calculator__tip-percent-radio");
 const tipInput = document.getElementById("calculator__tip-percent--input");
 const peopleInput = document.getElementById("people");
+const tipTotalEl = document.getElementById("total");
+const tipPerPerson = document.getElementById("tip-per-person");
 
 const bill = () => parseFloat(billInput.value); // Total bill
 // retrieve the percent number of the selected percent or input
@@ -38,7 +40,7 @@ function uncheck() {
 // Calculations
 
 function tipAmount() {
-  return (bill() / 100) * tipPercent();
+  const tips = (bill() / 100) * tipPercent();
 }
 
 function totalPerPerson() {
