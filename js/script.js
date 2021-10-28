@@ -17,7 +17,6 @@ const tipInput = document.getElementById("calculator__tip-percent--input");
 const peopleInput = document.getElementById("people");
 const tipTotalEl = document.getElementById("tip-total");
 const tipPerPerson = document.getElementById("tip-per-person");
-
 const bill = () => parseFloat(billInput.value); // Total bill
 // retrieve the percent number of the selected percent or input
 const tipPercent = () => {
@@ -48,3 +47,7 @@ function totalPerPerson() {
   const amountPerPerson = (tipAmount() / people()).toFixed(2);
   return (tipPerPerson.innerText = amountPerPerson);
 }
+
+billInput.addEventListener("keyup", function () {
+  totalPerPerson();
+});
