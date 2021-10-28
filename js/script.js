@@ -8,6 +8,7 @@
  * tot tip amount / numer of people = tip per person
  * maybe i could add an opition to round the result
  * when click on reset, deselect all buttons and reset all inputs.
+ * every time i click on a tip button or change something in the inputs, the calculator should update.
  */
 
 // document elements
@@ -17,34 +18,67 @@ const tipInput = document.getElementById("calculator__tip-percent--input");
 const peopleInput = document.getElementById("people");
 const tipTotalEl = document.getElementById("tip-total");
 const tipPerPerson = document.getElementById("tip-per-person");
+const resetButton = document.getElementById("reset-button");
 
-const bill = () => parseFloat(billInput.value); // Total bill
-// retrieve the percent number of the selected percent or input
-const tipPercent = () => {
-  if (tipInput.value) return parseFloat(tipInput.value);
-  for (button of tipButton) {
-    if (button.checked) return parseFloat(button.getAttribute("data-percent"));
-  }
-};
-
-const people = () => parseFloat(peopleInput.value); // Number of people
-
-// uncheck buttons and delet value in input
-function uncheck() {
-  for (button of tipButton) {
-    button.checked = false;
-  }
-  tipInput.value = "";
+// retrieve data
+function bill() {
+  return Number(billInput.value);
 }
 
-// Calculations
+function tipPercent() {
+  if (tipInput.value !== "") {
+    return Number(tipInput.value);
+  } else {
+    const tipValue = Array.from(tipButton)
+      .filter((el) => el.checked)
+      .map((el) => el.getAttribute("data-percent"));
+    return Number(tipValue);
+  }
+}
+
+function people() {
+  return Number(peopleInput.value);
+}
+
+// results
 
 function tipAmount() {
-  const tips = ((bill() / 100) * tipPercent()).toFixed(2);
-  return (tipTotalEl.innerText = tips);
+  if (tipPercent() > 0 || people() > 0 || bill() > 0) {
+    return ((bill() / 100) * tipPercent() * people()).toFixed(2);
+  } else {
+    return "0.00";
+  }
 }
 
 function totalPerPerson() {
-  const amountPerPerson = (tipAmount() / people()).toFixed(2);
-  return (tipPerPerson.innerText = amountPerPerson);
+  return tipAmount() > 0 ? (tipAmount() / people()).toFixed(2) : "0.00";
 }
+
+function toggleResetButton() {
+  console.log("toggle");
+  if (tipPercent() > 0 || people() > 0 || bill() > 0) {
+    resetButton.classList.removeClass("unclickable");
+  } else {
+    resetButton.classList.add("unclickable");
+  }
+}
+
+function updateResults() {
+  tipTotalEl.innerText = tipAmount();
+  tipPerPerson.innerText = totalPerPerson();
+  toggleResetButton();
+}
+
+// eventlisteners
+
+[billInput, peopleInput, tipInput].forEach((el) => {
+  el.addEventListener("keyup", function () {
+    return updateResults();
+  });
+});
+
+Array.from(tipButton).forEach((el) => {
+  el.addEventListener("click", function () {
+    return updateResults();
+  });
+});
