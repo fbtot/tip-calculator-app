@@ -246,7 +246,8 @@ input::placeholder {
 }
 
 /* ========================== § BUTTONS === */
-.button, .button--dark.unclickable, .button--dark.active, .button--dark {
+.button, .button--dark.unclickable, .calculator__tip-percent-radio:checked + .calculator__tip-percent-button,
+.button--dark.active, .button--dark {
   background: var(--light-grayish-cyan2);
   font-weight: bold;
   border: none;
@@ -262,6 +263,7 @@ input::placeholder {
   color: white;
 }
 
+.calculator__tip-percent-radio:checked + .calculator__tip-percent-button,
 .button--dark.active {
   background: var(--strong-cyan);
   color: var(--very-dark-cyan);
@@ -355,6 +357,7 @@ input::placeholder {
   color: var(--dark-grayish-cyan);
 }
 
+.calculator__bill-label-container,
 .calculator__people-label-container {
   display: flex;
 }
