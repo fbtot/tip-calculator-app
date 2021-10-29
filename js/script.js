@@ -13,14 +13,25 @@ function bill() {
 }
 
 // if something is written in the input field, retrieve that, else retrieve the "data-percent" attribute of the selected button
+// function tipPercent() {
+//   if (tipInput.value !== "") {
+//     return Number(tipInput.value);
+//   } else {
+//     const tipValue = Array.from(tipButton)
+//       .filter((el) => el.checked)
+//       .map((el) => el.getAttribute("data-percent"));
+//     return Number(tipValue);
+//   }
+// }
+
 function tipPercent() {
-  if (tipInput.value !== "") {
-    return Number(tipInput.value);
-  } else {
+  if (checkedButtons()) {
     const tipValue = Array.from(tipButton)
       .filter((el) => el.checked)
       .map((el) => el.getAttribute("data-percent"));
     return Number(tipValue);
+  } else {
+    return Number(tipInput.value);
   }
 }
 
@@ -75,7 +86,7 @@ function tipAmount() {
 }
 
 function totalPerPerson() {
-  return tipAmount() > 0 ? tipAmount() + bill() : 0;
+  return tipAmount() + bill();
 }
 
 /* ========================== § FUNCTIONALITY === */
