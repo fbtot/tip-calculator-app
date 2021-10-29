@@ -54,7 +54,7 @@ function validateInputs(reset) {
       errorMsg(el).classList.remove("error");
       el.classList.remove("error");
     } else {
-      if (!el.value) {
+      if (el.value < 1 || el.value === "") {
         errorMsg(el).classList.add("error");
         el.classList.add("error");
       } else if (el.value) {
@@ -115,8 +115,14 @@ function uncheckButtons() {
 
 /* ========================== § EVENTS === */
 [billInput, peopleInput, tipInput].forEach((el) => {
-  el.addEventListener("keyup", function () {
+  el.addEventListener("keyup", function (e) {
     return updateResults();
+  });
+
+  el.addEventListener("keydown", function (e) {
+    if (e.key.match(/\.|e/)) {
+      return e.preventDefault();
+    }
   });
 });
 
