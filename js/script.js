@@ -43,6 +43,28 @@ function somethingWritten(where) {
   }
 }
 
+function errorMsg(element) {
+  return element.previousElementSibling;
+}
+
+// if the variable reset is set with the keyword reset, remove the class error, regardless of the content of the input, else add the class error if the input is falsy, remove it if it's truthy
+function validateInputs(reset) {
+  [billInput, peopleInput].forEach((el) => {
+    if (reset === "reset") {
+      errorMsg(el).classList.remove("error");
+      el.classList.remove("error");
+    } else {
+      if (!el.value) {
+        errorMsg(el).classList.add("error");
+        el.classList.add("error");
+      } else if (el.value) {
+        errorMsg(el).classList.remove("error");
+        el.classList.remove("error");
+      }
+    }
+  });
+}
+
 /* ========================== § RESULTS === */
 function tipAmount() {
   if (somethingWritten("everywhere")) {
@@ -81,6 +103,7 @@ function updateResults() {
   tipTotalEl.innerText = tipAmount().toFixed(2);
   tipPerPerson.innerText = totalPerPerson().toFixed(2);
   toggleResetButton();
+  validateInputs();
 }
 
 // uncheck all buttons
@@ -108,5 +131,5 @@ tipInput.addEventListener("click", function () {
 });
 
 resetButton.addEventListener("click", function () {
-  return reset(), updateResults();
+  return reset(), updateResults(), validateInputs("reset");
 });
