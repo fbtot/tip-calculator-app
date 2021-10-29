@@ -200,7 +200,7 @@ form {
   /* mixin mq */
   /* end mixin mq */
 }
-@media screen and (max-width: 799px) {
+@media screen and (max-width: 959px) {
   .title {
     margin-top: 2rem;
     margin-bottom: 1.2rem;
@@ -289,7 +289,7 @@ input::placeholder {
   /* mixin mq */
   /* end mixin mq */
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 960px) {
   .calculator {
     border-radius: 1rem;
     margin: 0 auto;
@@ -330,7 +330,7 @@ input::placeholder {
   margin-bottom: 1.5rem;
   border: none;
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 960px) {
   .calculator__tip-percent-container {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -370,7 +370,7 @@ input::placeholder {
   /* mixin mq */
   /* end mixin mq */
 }
-@media screen and (max-width: 799px) {
+@media screen and (max-width: 959px) {
   .calculator__people {
     margin-bottom: 1rem;
   }
@@ -396,7 +396,7 @@ input::placeholder {
   /* mixin mq */
   /* end mixin mq */
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 960px) {
   .calculator__output {
     padding: 1.3rem 1.8rem 1.8rem;
   }
@@ -413,7 +413,7 @@ input::placeholder {
   /* mixin mq */
   /* end mixin mq */
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 960px) {
   .calculator__table td {
     padding-bottom: 0rem;
   }
@@ -442,7 +442,7 @@ input::placeholder {
 .calculator__total:before {
   content: "$";
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 960px) {
   .calculator__total {
     font-size: 2rem;
   }
