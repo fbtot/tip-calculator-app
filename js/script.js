@@ -42,6 +42,7 @@ function somethingWritten(where) {
     return tipPercent() > 0 || people() > 0 || bill() > 0;
   }
 }
+
 /* ========================== § RESULTS === */
 function tipAmount() {
   if (somethingWritten("everywhere")) {
@@ -60,8 +61,10 @@ function totalPerPerson() {
 function toggleResetButton() {
   if (somethingWritten("somewhere") || checkedButtons()) {
     resetButton.classList.remove("unclickable");
+    resetButton.classList.add("active");
   } else {
     resetButton.classList.add("unclickable");
+    resetButton.classList.remove("active");
   }
 }
 
