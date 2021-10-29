@@ -310,6 +310,7 @@ input::placeholder {
 .calculator__bill,
 .calculator__people {
   text-align: right;
+  flex: 1 0 100%;
 }
 
 .calculator__bill {
@@ -360,6 +361,7 @@ input::placeholder {
 .calculator__bill-label-container,
 .calculator__people-label-container {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .calculator__people {
