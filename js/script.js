@@ -35,12 +35,16 @@ function checkedButtons() {
 }
 
 // is there something written in the input fields?
-function somethingWritten() {
-  return;
+function somethingWritten(where) {
+  if (where === "everywhere") {
+    return tipPercent() > 0 && people() > 0 && bill() > 0;
+  } else if (where === "somewhere") {
+    return tipPercent() > 0 || people() > 0 || bill() > 0;
+  }
 }
 /* ========================== § RESULTS === */
 function tipAmount() {
-  if (tipPercent() > 0 && people() > 0 && bill() > 0) {
+  if (somethingWritten("everywhere")) {
     return ((bill() / 100) * tipPercent()) / people();
   } else {
     return 0;
@@ -54,7 +58,7 @@ function totalPerPerson() {
 /* ========================== § FUNCTIONALITY === */
 // make the reset button clickable when a button is selected or an input has a value
 function toggleResetButton() {
-  if (somethingWritten() || checkedButtons()) {
+  if (somethingWritten("somewhere") || checkedButtons()) {
     resetButton.classList.remove("unclickable");
   } else {
     resetButton.classList.add("unclickable");
@@ -69,6 +73,7 @@ function reset() {
   uncheckButtons();
 }
 
+// display the results
 function updateResults() {
   tipTotalEl.innerText = tipAmount().toFixed(2);
   tipPerPerson.innerText = totalPerPerson().toFixed(2);
