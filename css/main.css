@@ -358,8 +358,8 @@ input::placeholder {
   color: var(--dark-grayish-cyan);
 }
 
-.calculator__bill-label-container,
-.calculator__people-label-container {
+.calculator__bill-container,
+.calculator__people-container {
   display: flex;
   flex-wrap: wrap;
 }
