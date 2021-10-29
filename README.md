@@ -14,10 +14,10 @@ Users should be able to:
 
 ### Screenshot
 
-![Screenshot desktop](./images/screenshot/ss-desktop.jpg)
-![Screenshot desktop active](./images/screenshot/ss-desktop-active.jpg)
-![Screenshot desktop error](./images/screenshot/ss-desktop-error.jpg)
-![Screenshot mobile](./images/screenshot/ss-mobile.jpg)
+![Screenshot desktop](./images/screenshots/ss-desktop.jpg)
+![Screenshot desktop active](./images/screenshots/ss-desktop-active.jpg)
+![Screenshot desktop error](./images/screenshots/ss-desktop-error.jpg)
+![Screenshot mobile](./images/screenshots/ss-mobile.jpg)
 
 ### Links
 
