@@ -55,12 +55,18 @@ function totalPerPerson() {
 }
 
 function toggleResetButton() {
-  console.log("toggle");
   if (tipPercent() > 0 || people() > 0 || bill() > 0) {
-    resetButton.classList.removeClass("unclickable");
+    resetButton.classList.remove("unclickable");
   } else {
     resetButton.classList.add("unclickable");
   }
+}
+
+function reset() {
+  billInput.value = "";
+  peopleInput.value = "";
+  tipInput.value = "";
+  Array.from(tipButton).forEach((el) => (el.checked = false));
 }
 
 function updateResults() {
@@ -68,13 +74,14 @@ function updateResults() {
   tipPerPerson.innerText = totalPerPerson();
   toggleResetButton();
 }
+
+// Events
 [billInput, peopleInput, tipInput].forEach((el) => {
   el.addEventListener("keyup", function () {
     return updateResults();
   });
 });
 
-// Array.from(tipButton).forEach((el) => {
-//   el.addEventListener("click", function () {
-//     return updateResults();
-//   });
+resetButton.addEventListener("click", function () {
+  return reset(), updateResults();
+});
