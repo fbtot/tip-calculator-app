@@ -73,8 +73,16 @@ function tipAmount() {
   }
 }
 
+function billPerPerson() {
+  return bill() / people();
+}
+
 function totalPerPerson() {
-  return tipAmount() + bill();
+  if (somethingWritten("everywhere")) {
+    return tipAmount() + billPerPerson();
+  } else {
+    return 0;
+  }
 }
 
 /* ========================== § FUNCTIONALITY === */
